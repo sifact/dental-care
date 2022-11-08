@@ -13,7 +13,7 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
-    const { signIn, providerLogin, login } = useContext(AuthContext);
+    const { signIn, googleProviderLogin, login } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,7 +23,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
             .then((result) => {
                 const user = result.user;
 
