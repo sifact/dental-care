@@ -1,14 +1,16 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
+
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
     return (
-        <Navbar bg="light" expand="lg" style={{ height: "85px" }}>
+        <Navbar className="py-3" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand className="text-bold" href="#">
                     Dental Care
@@ -17,13 +19,13 @@ const Header = () => {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="ms-auto my-2 my-lg-0"
-                        style={{ maxHeight: "150px" }}
+                        style={{ maxHeight: "100px" }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Blog</Nav.Link>
-                        <Nav.Link href="#action2">Login</Nav.Link>
-                        <Nav.Link href="#action2">Sign up</Nav.Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/blog">Blog</Link>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Sign up</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

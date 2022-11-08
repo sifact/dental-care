@@ -1,0 +1,59 @@
+.f_container input,
+.f_container button,
+.f_container textarea {
+    width: 100%;
+    padding: 0.5rem !important;
+    border-radius: 5px;
+    margin: 1rem 0 !important;
+    border: 2px solid var(--light);
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+button {
+    border: none;
+}
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid var(--clr-primary-8);
+}
+
+.form__title {
+    text-align: center;
+    color: var(--clr-primary-5);
+}
+.f_container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
+
+    transition: var(--transition);
+}
+
+.submit-btn {
+    background: var(--clr-primary-8);
+
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    /* border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius); */
+    cursor: pointer;
+    content: var(--clr-primary-5);
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+.submit-btn.hv:hover {
+    background: var(--clr-primary-5);
+    color: white;
+}
+
+.d__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
