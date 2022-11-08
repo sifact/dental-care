@@ -1,17 +1,70 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import "./Login.css";
+import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from "firebase/auth";
+import Alert from "../Alert/Alert";
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+    const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
+    const { signIn, providerLogin, login } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then((result) => {
+                const user = result.user;
+
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch((e) => console.log(e.message));
+    };
+
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        setAlert({ show: false });
+        const form = event.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                form.reset();
+                setAlert({
+                    show: true,
+                    msg: "successfully logged in",
+                    type: "success",
+                });
+                navigate(from, { replace: true });
+                console.log(user);
+            })
+            .catch((e) => {
+                setAlert({ show: true, msg: e.message, type: "danger" });
+                console.log(e);
+            });
+    };
     return (
         <Container className="d-flex justify-content-center align-items-center mt-5">
             <section className="login">
                 <div className="form form__container">
-                    <form className="">
+                    <form onSubmit={handleSignIn} className="">
                         <h1 className="form__title">Login</h1>
-
+                        {alert.show && <Alert {...alert} />}
                         <div className="form__control">
                             <input
                                 name="email"
@@ -34,14 +87,15 @@ const Login = () => {
                     <small className="d-block text-center">
                         Log in with one of the following:
                     </small>
-                    <button className="submit-btn button" id="btn-submit">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="submit-btn button"
+                        id="btn-submit"
+                    >
                         <FaGoogle className="me-2" />
                         <span>Google</span>
                     </button>
-                    <button className="submit-btn button" id="btn-submit">
-                        <FaGithub className="me-2" />
-                        <span>Github</span>
-                    </button>
+
                     <small>
                         New to Prodigy Tech{" "}
                         <Link to="/register">Create a New Account</Link>
