@@ -57,6 +57,8 @@ const Header = () => {
                                 <Link to="/register">Sign up</Link>
                             </>
                         )}
+
+                        <Link to="/reviews">Reviews</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

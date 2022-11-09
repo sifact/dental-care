@@ -3,3 +3,8 @@ Nav a {
     padding: 8px;
     color: black;
 }
+
+Nav a:hover {
+    text-decoration: none;
+    color: var(--clr-grey-5);
+}

@@ -22,21 +22,25 @@ const AuthProvider = ({ children }) => {
 
     // google
     const googleProviderLogin = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider);
     };
 
     // sign up
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     // sign in
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     // sign out
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     };
 
@@ -48,11 +52,18 @@ const AuthProvider = ({ children }) => {
     // get user from firebase
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser);
+            console.log("inside auth state change", currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            unsubscribe();
+        };
+    }, []);
+
+    useEffect(() => {
+        fetch();
     }, []);
 
     const authInfo = {

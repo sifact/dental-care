@@ -1,11 +1,15 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Button, Container } from "react-bootstrap";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import PrivateRoutes from "../../Router/PrivateRoutes/PrivateRoutes";
 import AddReviews from "./AddReviews/AddReviews";
 import Reviews from "./Reviews/Reviews";
 import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
+    const { user } = useContext(AuthContext);
+
     const service = useLoaderData();
 
     const { title, description, img, price, _id } = service;
@@ -22,8 +26,25 @@ const ServiceDetails = () => {
                     <p>Service Fee: $ {price}</p>
                 </div>
             </div>
-            <Reviews />
-            <AddReviews title={title} price={price} id={_id} />
+            <h3>Rate this Service</h3>
+            <p>Tell others what you think</p>
+            {user?.uid ? (
+                <PrivateRoutes>
+                    <AddReviews
+                        title={title}
+                        price={price}
+                        _id={_id}
+                        img={img}
+                        service
+                    />
+                </PrivateRoutes>
+            ) : (
+                <Link to="/login">
+                    <button className="btn btn-primary">Write a review</button>
+                </Link>
+            )}
+
+            <Reviews _id={_id} />
         </Container>
     );
 };

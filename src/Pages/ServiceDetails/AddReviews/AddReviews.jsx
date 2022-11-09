@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./AddReviews.css";
 
-const AddReviews = ({ title, price, id }) => {
+const AddReviews = ({ title, price, _id }) => {
+    const { user } = useContext(AuthContext);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = `${form.firstName.value} ${form.lastName.value}`;
-        const email = "unregistered";
+        const email = user?.email || "unregistered";
+        const photo = user?.photoURL || "no photos";
         const phone = form.phone.value;
         const review = form.review.value;
 
-        // console.log(name, email, phone, review);
-        // console.log(title, price, id);
+        console.log(name, email, phone, review);
+        console.log(title, price, _id);
 
         const reviews = {
-            service: id,
+            service: _id,
             serviceTitle: title,
             price,
             userName: name,
+            photo,
             email,
             phone,
             review,
@@ -75,6 +80,7 @@ const AddReviews = ({ title, price, id }) => {
                                 name="email"
                                 type="email"
                                 placeholder="email"
+                                defaultValue={user?.email}
                             />
                         </div>
                     </div>

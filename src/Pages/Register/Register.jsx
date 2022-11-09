@@ -2,14 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+
 import Alert from "../Alert/Alert";
-import "./Register.css";
 
 const Register = () => {
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
-    const { signUp, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || "/";
 
     const handleRegistration = (event) => {
         event.preventDefault();
@@ -19,7 +23,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        signUp(email, password)
+        createUser(email, password)
             .then((result) => {
                 const user = result.user;
                 form.reset();
@@ -30,6 +34,8 @@ const Register = () => {
                 });
                 console.log(user);
                 handleUpdateUserProfile(name, photoURL);
+                // navigate(from, { replace: true });
+                navigate("/");
             })
             .catch((e) => {
                 console.log("error: ", e);
