@@ -1,0 +1,8 @@
+.my_review_wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr 150px;
+    grid-gap: 2rem;
+    background-color: var(--pure);
+    padding: 2rem;
+    border-radius: 10px;
+}

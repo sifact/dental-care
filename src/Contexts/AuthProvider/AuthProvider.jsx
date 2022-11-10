@@ -62,10 +62,6 @@ const AuthProvider = ({ children }) => {
         };
     }, []);
 
-    useEffect(() => {
-        fetch();
-    }, []);
-
     const authInfo = {
         user,
         loading,

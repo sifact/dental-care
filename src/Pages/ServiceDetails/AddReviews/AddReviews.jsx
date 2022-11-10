@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./AddReviews.css";
 
-const AddReviews = ({ title, price, _id }) => {
+const AddReviews = ({ title, price, _id, img }) => {
     const { user } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
@@ -17,7 +17,7 @@ const AddReviews = ({ title, price, _id }) => {
         const review = form.review.value;
 
         console.log(name, email, phone, review);
-        console.log(title, price, _id);
+        console.log(title, price, _id, img);
 
         const reviews = {
             service: _id,
@@ -28,6 +28,7 @@ const AddReviews = ({ title, price, _id }) => {
             email,
             phone,
             review,
+            img,
         };
 
         fetch("http://localhost:5000/reviews", {

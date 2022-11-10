@@ -35,7 +35,6 @@ const ServiceDetails = () => {
                         price={price}
                         _id={_id}
                         img={img}
-                        service
                     />
                 </PrivateRoutes>
             ) : (

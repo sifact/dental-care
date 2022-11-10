@@ -58,7 +58,7 @@ const Header = () => {
                             </>
                         )}
 
-                        <Link to="/reviews">Reviews</Link>
+                        <Link to={`/reviews`}>My Reviews</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

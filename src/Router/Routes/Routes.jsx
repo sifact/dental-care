@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { createBrowserRouter } from "react-router-dom";
+// import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import Main from "../../Layouts/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
+import AddReviews from "../../Pages/ServiceDetails/AddReviews/AddReviews";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+// const { user } = useContext()
 
 const router = createBrowserRouter([
     {
@@ -38,7 +41,15 @@ const router = createBrowserRouter([
                         <MyReviews />
                     </PrivateRoutes>
                 ),
+                
             },
+            // reviews update
+            {
+                path: "/reviews/:id",
+                element: <AddReviews />,
+                loader: 
+                
+            }
         ],
     },
 ]);

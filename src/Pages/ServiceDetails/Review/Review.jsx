@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
-const Review = ({ message }) => {
+const Review = ({ message, handleDelete }) => {
     // const { user } = useContext(AuthContext);
     const { photo, userName, review } = message;
 
