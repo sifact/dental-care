@@ -34,56 +34,62 @@ const EditReviews = () => {
     };
 
     return (
-        <div>
-            <h1>Update your review</h1>
+        <div className="d-flex justify-content-center">
             <div>
-                <form onClick={handleUpdateUser} className="">
-                    <div className="">
-                        <div className="form__control">
-                            <input
-                                name="firstName"
-                                type="text"
-                                placeholder="first name"
-                                onChange={handleInputChange}
-                                // defaultValue={}
+                <h1 className="text-center my-5">Update your review</h1>
+                <div className="f_container" style={{ width: "500px" }}>
+                    <form onClick={handleUpdateUser} className="">
+                        <div className="">
+                            <div className="form__control">
+                                <input
+                                    name="firstName"
+                                    type="text"
+                                    placeholder="first name"
+                                    onChange={handleInputChange}
+                                    // defaultValue={}
 
-                                id="firstName"
-                            />
+                                    id="firstName"
+                                />
+                            </div>
+                            <div className="form__control">
+                                <input
+                                    onChange={handleInputChange}
+                                    name="lastName"
+                                    type="text"
+                                    id="lastName"
+                                    placeholder="last name"
+                                />
+                            </div>
                         </div>
-                        <div className="form__control">
-                            <input
-                                onChange={handleInputChange}
-                                name="lastName"
-                                type="text"
-                                id="lastName"
-                                placeholder="last name"
-                            />
+                        <div className="">
+                            <div className="form__control">
+                                <input
+                                    onChange={handleInputChange}
+                                    name="email"
+                                    type="email"
+                                    id="email"
+                                    placeholder="email"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="form__control">
-                            <input
-                                name="email"
-                                type="email"
-                                placeholder="email"
-                                // defaultValue={user?.email}
-                            />
+                        <textarea
+                            onChange={handleInputChange}
+                            name="text"
+                            id="text"
+                            cols="100"
+                            rows="8"
+                            placeholder="text"
+                        ></textarea>
+                        <div className="text-center">
+                            <button
+                                className="submit-btn hv w-25"
+                                id="btn-submit"
+                            >
+                                Submit
+                            </button>
                         </div>
-                    </div>
-                    <textarea
-                        onChange={handleInputChange}
-                        name="review"
-                        id=""
-                        cols="100"
-                        rows="8"
-                        placeholder="review"
-                    ></textarea>
-                    <div className="text-center">
-                        <button className="submit-btn hv w-25" id="btn-submit">
-                            Submit
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );

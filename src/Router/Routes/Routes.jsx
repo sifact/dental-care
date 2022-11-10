@@ -6,6 +6,7 @@ import Main from "../../Layouts/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import EditReviews from "../../Pages/MyReviews/EditReviews/EditReviews";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
 import AddReviews from "../../Pages/ServiceDetails/AddReviews/AddReviews";
@@ -41,15 +42,14 @@ const router = createBrowserRouter([
                         <MyReviews />
                     </PrivateRoutes>
                 ),
-                
             },
             // reviews update
             {
                 path: "/reviews/:id",
-                element: <AddReviews />,
-                loader: 
-                
-            }
+                element: <EditReviews />,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/reviews/${params.id}`),
+            },
         ],
     },
 ]);
