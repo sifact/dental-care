@@ -7,6 +7,17 @@
     font-family: "Poppins", sans-serif;
 }
 
+button {
+    /* width: 100%; */
+    padding: 0.5rem !important;
+    border-radius: 10px;
+    margin: 1rem 0 !important;
+    border: 2px solid var(--light);
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
 .form__container input,
 .form__container button {
     width: 100%;

@@ -1,3 +1,4 @@
+// EditReviews component
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
@@ -8,7 +9,7 @@ const EditReviews = () => {
 
     const handleUpdateUser = (event) => {
         event.preventDefault();
-        // console.log(user);
+
         fetch(`http://localhost:5000/reviews/${review._id}`, {
             method: "PUT",
             headers: {
@@ -18,10 +19,11 @@ const EditReviews = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                if (data.modifiedUser > 0) {
+                // console.log("hello");
+                if (data.modifiedCount > 0) {
                     alert("User added successfully");
                 }
-                event.target.reset();
+                // event.target.reset();
             });
     };
 
@@ -30,6 +32,7 @@ const EditReviews = () => {
         const field = event.target.name;
         const newReview = { ...review };
         newReview[field] = value;
+        console.log(newReview);
         setReview(newReview);
     };
 
@@ -38,26 +41,16 @@ const EditReviews = () => {
             <div>
                 <h1 className="text-center my-5">Update your review</h1>
                 <div className="f_container" style={{ width: "500px" }}>
-                    <form onClick={handleUpdateUser} className="">
+                    <form onSubmit={handleUpdateUser}>
                         <div className="">
                             <div className="form__control">
                                 <input
-                                    name="firstName"
+                                    name="userName"
                                     type="text"
-                                    placeholder="first name"
+                                    placeholder="Name"
                                     onChange={handleInputChange}
-                                    // defaultValue={}
-
-                                    id="firstName"
-                                />
-                            </div>
-                            <div className="form__control">
-                                <input
-                                    onChange={handleInputChange}
-                                    name="lastName"
-                                    type="text"
-                                    id="lastName"
-                                    placeholder="last name"
+                                    defaultValue={review.userName}
+                                    id="userName"
                                 />
                             </div>
                         </div>
@@ -69,16 +62,18 @@ const EditReviews = () => {
                                     type="email"
                                     id="email"
                                     placeholder="email"
+                                    defaultValue={review.email}
                                 />
                             </div>
                         </div>
                         <textarea
                             onChange={handleInputChange}
-                            name="text"
-                            id="text"
+                            name="review"
+                            id="review"
                             cols="100"
                             rows="8"
-                            placeholder="text"
+                            placeholder="review"
+                            defaultValue={review.review}
                         ></textarea>
                         <div className="text-center">
                             <button

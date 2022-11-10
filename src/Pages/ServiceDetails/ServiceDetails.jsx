@@ -9,10 +9,15 @@ import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
+    const [showForm, setShowForm] = useState(false);
 
     const service = useLoaderData();
 
     const { title, description, img, price, _id } = service;
+    const handleButton = () => {
+        setShowForm(!showForm);
+        console.log(showForm);
+    };
 
     return (
         <Container>
@@ -29,18 +34,23 @@ const ServiceDetails = () => {
             <h3>Rate this Service</h3>
             <p>Tell others what you think</p>
             {user?.uid ? (
-                <PrivateRoutes>
-                    <AddReviews
-                        title={title}
-                        price={price}
-                        _id={_id}
-                        img={img}
-                    />
-                </PrivateRoutes>
+                <button onClick={handleButton} className="button">
+                    {showForm ? "close" : "Write a review"}
+                </button>
             ) : (
                 <Link to="/login">
-                    <button className="btn btn-primary">Write a review</button>
+                    <button className="button">write a review</button>
                 </Link>
+            )}
+            {/* {user?.uid ? (
+                <PrivateRoutes>
+                    
+                </PrivateRoutes>
+            ) : (
+                
+            )} */}
+            {showForm && (
+                <AddReviews title={title} price={price} _id={_id} img={img} />
             )}
 
             <Reviews _id={_id} />

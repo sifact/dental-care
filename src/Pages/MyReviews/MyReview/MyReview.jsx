@@ -31,6 +31,7 @@ const MyReview = ({ message, handleDelete }) => {
                 <p>{review}</p>
             </div>
             <div className="icons text-center">
+                {/* edit icons from my reviews page */}
                 <Link to={`/reviews/${_id}`}>
                     <FaEdit className="me-2" style={{ cursor: "pointer" }} />
                 </Link>

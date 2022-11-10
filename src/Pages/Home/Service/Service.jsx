@@ -8,14 +8,14 @@ const Service = ({ serve }) => {
     const { title, img, price, description, _id } = serve;
 
     return (
-        <Card>
+        <Card className="border-0">
             <Card.Img variant="top" src={img} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>{description.slice(0, 100) + "..."}</Card.Text>
                 <Card.Text>Price: {price}</Card.Text>
                 <Link to={`/services/${_id}`}>
-                    <Button variant="primary">Show Details</Button>
+                    <button className="button">Show Details</button>
                 </Link>
             </Card.Body>
         </Card>

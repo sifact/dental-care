@@ -43,7 +43,8 @@ const AddReviews = ({ title, price, _id, img }) => {
                 if (data.acknowledged) {
                     alert("Successfully Reviewed");
                 }
-                console.log(data);
+                form.reset();
+                // console.log(data);
             })
             .catch((er) => console.log(er));
     };

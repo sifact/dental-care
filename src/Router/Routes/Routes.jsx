@@ -44,11 +44,12 @@ const router = createBrowserRouter([
                 ),
             },
             // reviews update
+            // loader to get into EditReviews component
             {
                 path: "/reviews/:id",
                 element: <EditReviews />,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/reviews/${params.id}`),
+                    fetch(`http://localhost:5000/r/${params.id}`),
             },
         ],
     },
