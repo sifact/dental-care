@@ -21,8 +21,13 @@ function Banner() {
                         className="relative text-start"
                         style={{ top: "15rem", left: "5rem" }}
                     >
-                        <h3>Dental Care</h3>
-                        <h3>Above and beyond Customer Care</h3>
+                        <h1 className="title">
+                            <span className="highlight">Dental</span>{" "}
+                            <span className="text-white">Care</span>
+                        </h1>
+                        <h5 className="text-white">
+                            Above and beyond Customer Care
+                        </h5>
                         <p className="w-75">
                             When you teach your children how to properly care
                             for their teeth and gums, you are maintaining a
@@ -44,8 +49,13 @@ function Banner() {
                         className="relative text-start"
                         style={{ top: "15rem", left: "5rem" }}
                     >
-                        <h3>Dental Care</h3>
-                        <h3>Above and beyond Customer Care</h3>
+                        <h1 className="title">
+                            <span className="highlight">Dental</span>{" "}
+                            <span className="text-white">Care</span>
+                        </h1>
+                        <h5 className="text-white">
+                            Above and beyond Customer Care
+                        </h5>
                         <p className="w-75">
                             When you teach your children how to properly care
                             for their teeth and gums, you are maintaining a
@@ -67,8 +77,13 @@ function Banner() {
                         className="relative text-start"
                         style={{ top: "15rem", left: "5rem" }}
                     >
-                        <h3>Dental Care</h3>
-                        <h3>Above and beyond Customer Care</h3>
+                        <h1 className="title">
+                            <span className="highlight">Dental</span>{" "}
+                            <span className="text-white">Care</span>
+                        </h1>
+                        <h5 className="text-white">
+                            Above and beyond Customer Care
+                        </h5>
                         <p className="w-75">
                             When you teach your children how to properly care
                             for their teeth and gums, you are maintaining a

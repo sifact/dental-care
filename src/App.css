@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
 :root {
+    --primary: #eebf00;
     --secondary: #232b38;
     --ternary: #6c6c6c;
     --danger: #fe4545;
@@ -46,6 +47,13 @@ body {
     font-size: 0.85rem;
 }
 
+.title {
+    font-family: "Lobster", sans-serif;
+}
+
+.highlight {
+    color: var(--primary);
+}
 .button {
     display: inline-block;
     background-color: var(--clr-primary-6);

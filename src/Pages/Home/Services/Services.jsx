@@ -21,9 +21,16 @@ const Services = () => {
                     <Service serve={service} />
                 ))}
             </div>
-            <Link to="/services">
-                <button className="button">View all</button>
-            </Link>
+            <div className="text-center my-5">
+                <Link to="/services">
+                    <button
+                        className="button rounded-pill"
+                        style={{ width: "35%" }}
+                    >
+                        View all
+                    </button>
+                </Link>
+            </div>
         </Container>
     );
 };

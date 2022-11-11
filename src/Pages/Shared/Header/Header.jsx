@@ -23,7 +23,9 @@ const Header = () => {
         <Navbar className="py-3" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand className="text-bold" href="#">
-                    Dental Care
+                    <h1 className="bold title">
+                        <span className="highlight">Dental</span> Care
+                    </h1>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
@@ -33,7 +35,13 @@ const Header = () => {
                         navbarScroll
                     >
                         <Link to="/">Home</Link>
+                        <Link to="/services">Services</Link>
+                        {user?.uid && <Link to={`/reviews`}>My Reviews</Link>}
+                        {user?.uid && (
+                            <Link to={`/add/service`}>Add Service</Link>
+                        )}
                         <Link to="/blog">Blog</Link>
+
                         {user?.photoURL && (
                             <Link>
                                 <Image
@@ -57,9 +65,6 @@ const Header = () => {
                                 <Link to="/register">Sign up</Link>
                             </>
                         )}
-
-                        <Link to={`/reviews`}>My Reviews</Link>
-                        <Link to={`/add/service`}>Add Service</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
