@@ -2,12 +2,15 @@ import React, { useContext, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 import PrivateRoutes from "../../Router/PrivateRoutes/PrivateRoutes";
 import AddReviews from "./AddReviews/AddReviews";
 import Reviews from "./Reviews/Reviews";
 import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
+    useTitle("Service Details");
+
     const { user } = useContext(AuthContext);
     const [showForm, setShowForm] = useState(false);
 

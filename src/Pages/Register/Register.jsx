@@ -4,10 +4,12 @@ import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 import Alert from "../Alert/Alert";
 
 const Register = () => {
+    useTitle("Sign up");
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
     const { createUser, updateUserProfile } = useContext(AuthContext);
 
@@ -31,7 +33,7 @@ const Register = () => {
                 };
                 console.log(currentUser);
                 // get jwt token
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://dental-care-server-six.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

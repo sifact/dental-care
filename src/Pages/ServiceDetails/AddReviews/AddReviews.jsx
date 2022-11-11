@@ -31,7 +31,7 @@ const AddReviews = ({ title, price, _id, img }) => {
             img,
         };
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://dental-care-server-six.vercel.app/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

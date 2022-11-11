@@ -1,18 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 import MyReview from "./MyReview/MyReview";
 
 const MyReviews = () => {
+    useTitle("My Reviews");
+
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("dental-token")}`,
-            },
-        })
+        fetch(
+            `https://dental-care-server-six.vercel.app/reviews?email=${user?.email}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "dental-token"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, [user?.email]);
@@ -22,7 +30,7 @@ const MyReviews = () => {
             "Are you sure you wanna delete this review?"
         );
         if (agree) {
-            fetch(`http://localhost:5000/reviews/${_id}`, {
+            fetch(`https://dental-care-server-six.vercel.app/reviews/${_id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

@@ -1,7 +1,9 @@
 import React from "react";
+import useTitle from "../../hooks/UseTitle";
 import "./AddService.css";
 
 const AddService = () => {
+    useTitle("Add Service");
     const handleAddService = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -19,7 +21,7 @@ const AddService = () => {
             description,
         };
 
-        fetch("http://localhost:5000/add/service", {
+        fetch("https://dental-care-server-six.vercel.app/add/service", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

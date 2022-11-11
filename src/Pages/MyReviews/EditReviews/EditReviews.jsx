@@ -10,13 +10,16 @@ const EditReviews = () => {
     const handleUpdateUser = (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${review._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(review),
-        })
+        fetch(
+            `https://dental-care-server-six.vercel.app/reviews/${review._id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(review),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 // console.log("hello");

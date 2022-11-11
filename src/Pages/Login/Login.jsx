@@ -10,8 +10,10 @@ import Alert from "../Alert/Alert";
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 const Login = () => {
+    useTitle("Login");
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
     const { signIn, googleProviderLogin, login } = useContext(AuthContext);
 
@@ -32,7 +34,7 @@ const Login = () => {
                 };
                 console.log(currentUser);
                 // get jwt token
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://dental-care-server-six.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -68,7 +70,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://dental-care-server-six.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
