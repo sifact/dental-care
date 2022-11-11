@@ -1,0 +1,54 @@
+[debug] [2022-11-11T16:12:33.107Z] ----------------------------------------------------------------------
+[debug] [2022-11-11T16:12:33.109Z] Command:       G:\Program Files\nodejs\node.exe G:\Users\sifat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-11T16:12:33.110Z] CLI Version:   11.15.0
+[debug] [2022-11-11T16:12:33.110Z] Platform:      win32
+[debug] [2022-11-11T16:12:33.110Z] Node Version:  v16.18.0
+[debug] [2022-11-11T16:12:33.111Z] Time:          Fri Nov 11 2022 22:12:33 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-11-11T16:12:33.112Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-11T16:12:33.208Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-11T16:12:33.209Z] > authorizing via signed-in user (sifatami596@gmail.com)
+[debug] [2022-11-11T16:12:33.209Z] [iam] checking project dental-care-5f1b3 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-11T16:12:33.212Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/dental-care-5f1b3:testIamPermissions [none]
+[debug] [2022-11-11T16:12:33.212Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/dental-care-5f1b3:testIamPermissions x-goog-quota-user=projects/dental-care-5f1b3
+[debug] [2022-11-11T16:12:33.212Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dental-care-5f1b3:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-11T16:12:35.053Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/dental-care-5f1b3:testIamPermissions 200
+[debug] [2022-11-11T16:12:35.053Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dental-care-5f1b3:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-11T16:12:35.055Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dental-care-5f1b3 [none]
+[debug] [2022-11-11T16:12:36.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dental-care-5f1b3 200
+[debug] [2022-11-11T16:12:36.065Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dental-care-5f1b3 {"projectId":"dental-care-5f1b3","projectNumber":"274365275131","displayName":"dental-care","name":"projects/dental-care-5f1b3","resources":{"hostingSite":"dental-care-5f1b3"},"state":"ACTIVE","etag":"1_93003464-ac28-4105-b7f1-fcdbcdcfea40"}
+[info] 
+[info] === Deploying to 'dental-care-5f1b3'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-11-11T16:12:36.072Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/dental-care-5f1b3/versions [none]
+[debug] [2022-11-11T16:12:36.073Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/dental-care-5f1b3/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-11T16:12:38.048Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/dental-care-5f1b3/versions 200
+[debug] [2022-11-11T16:12:38.048Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/dental-care-5f1b3/versions {"name":"projects/274365275131/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[dental-care-5f1b3]: beginning deploy... 
+[info] i  hosting[dental-care-5f1b3]: found 18 files in build 
+[debug] [2022-11-11T16:12:38.065Z] [hosting] uploading with 200 concurrency
+[debug] [2022-11-11T16:12:38.075Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-11-11T16:12:38.075Z] [hosting][hash queue][FINAL] {"max":4,"min":0,"avg":0,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":6}
+[debug] [2022-11-11T16:12:38.075Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/274365275131/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a:populateFiles [none]
+[debug] [2022-11-11T16:12:38.076Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/274365275131/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a:populateFiles {"files":{"/asset-manifest.json":"b056fa5cb257c1e5164791e829d781e33f1b26fca06f7ddda935e2b214b554ab","/favicon.ico":"218f58a8e6b832c63954df189fa1d330a28c217b58d85c65ad790bb0a544255e","/index.html":"d64291fb47c69dfc759cdeba8dad037d520dc4f65ae07fb8340d0d2026116b01","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.d7c5d3cb.css":"6f17745f1901694f4a34be612ec0b378886a087e9655492618af025572c80b6c","/static/css/main.d7c5d3cb.css.map":"c390e1ff44c39da851d257d220b2eefca308eef66e7e6f7456f097e40ed3ba1f","/static/js/main.c338883b.js":"28063b863a97dd2462684908c0648a510e9835027c6f80c680b7dcf868b7894b","/static/js/main.c338883b.js.LICENSE.txt":"dc5016d29d45e826ece3d0acae9cce0be7562d2a273dd92025dcc349f37858a0","/static/js/main.c338883b.js.map":"81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e","/static/media/logo1.e262999ade035e190136.png":"ca2926bdd39b3cf5b022c8f7a922ebdb558d37f4151d82a9dd00d725d2ca092f","/static/media/logo2.dc86a2851b35396cc7fd.png":"b0807eaea3d5171e12e93ada5f3f4c084bf2f4f82c6c603386ea8a1982b8a08a","/static/media/logo4.a297493de6e5d8a37159.png":"c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4","/static/media/slider1.6e9810e7dbad3886f606.png":"bdf2d87e439cc945734cfea67f06df50994a4ed4528ef98dd227c1803925a35a","/static/media/slider2.07bb34aec41044517f01.jpg":"2d302c5edf1aa8229c057bc97be54797f53469c4424e6967e961f8c8285cc2a0","/static/media/slider3.d11c308ec771f8abe78b.jpg":"7b563acd4df10239db363b37960d110cd047f592fd323ef9e571c4470cf8638f"}}
+[debug] [2022-11-11T16:12:39.497Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/274365275131/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a:populateFiles 200
+[debug] [2022-11-11T16:12:39.497Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/274365275131/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a:populateFiles {"uploadRequiredHashes":["81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e","c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files"}
+[debug] [2022-11-11T16:12:39.500Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e [none]
+[debug] [2022-11-11T16:12:39.501Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e [stream]
+[debug] [2022-11-11T16:12:39.504Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [none]
+[debug] [2022-11-11T16:12:39.504Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [stream]
+[debug] [2022-11-11T16:12:39.506Z] [hosting][populate queue][FINAL] {"max":1427,"min":1427,"avg":1427,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1433}
+[debug] [2022-11-11T16:12:39.506Z] [hosting] uploads queued: 2
+[debug] [2022-11-11T16:13:09.908Z] [uploadQueue] Retrying task c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4
+[debug] [2022-11-11T16:13:09.909Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [none]
+[debug] [2022-11-11T16:13:09.909Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [stream]
+[debug] [2022-11-11T16:13:40.710Z] [uploadQueue] Retrying task c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4
+[debug] [2022-11-11T16:13:40.711Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [none]
+[debug] [2022-11-11T16:13:40.711Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [stream]
+[debug] [2022-11-11T16:13:44.362Z] [uploadQueue] Retrying task 81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e
+[debug] [2022-11-11T16:13:44.364Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e [none]
+[debug] [2022-11-11T16:13:44.364Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/81d72e78e8963982965be2b55332936b68f1b98cb2a16ff23e7dc1c39dba205e [stream]
+[debug] [2022-11-11T16:14:12.313Z] [uploadQueue] Retrying task c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4
+[debug] [2022-11-11T16:14:12.314Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [none]
+[debug] [2022-11-11T16:14:12.315Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dental-care-5f1b3/versions/aae4da3ce5ceca4a/files/c9c345fde226978eb5b1ab6e46c24a36fca1548552364e5ad076dde30c1f5aa4 [stream]
