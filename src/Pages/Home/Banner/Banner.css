@@ -10,16 +10,34 @@
     background: linear-gradient(to right, #151515 0%, rgba(21, 21, 21, 0) 100%);
 }
 
+.pos {
+    top: 15rem;
+    left: 5rem;
+}
+
+p.width {
+    width: 75%;
+}
 @media screen and (max-width: 992px) {
 }
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
+    .pos {
+        top: 0rem;
+        left: 1rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
+    p.width {
+        display: none;
+    }
 }
 
 /* For small devices */
 @media screen and (max-width: 350px) {
+    p .width {
+        width: 95%;
+    }
 }
