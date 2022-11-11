@@ -56,14 +56,16 @@ body {
 }
 .button {
     display: inline-block;
-    background-color: var(--clr-primary-6);
-    color: var(--pure);
+    background-color: var(--primary);
+    color: var(--secondary);
     padding: 0.5rem 1.5rem;
     border-radius: 0.2rem;
     font-weight: 500;
     transition: 0.3s all ease;
+    border: 2px solid transparent;
 }
 
 .button:hover {
-    background-color: var(--clr-primary-4);
+    background-color: transparent;
+    border: 2px solid var(--primary);
 }
