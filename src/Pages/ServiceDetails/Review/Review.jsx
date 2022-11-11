@@ -6,8 +6,8 @@ const Review = ({ message, handleDelete }) => {
     const { photo, userName, review } = message;
 
     return (
-        <div>
-            <div className="py-3">
+        <div className="text-center">
+            <div className="py-3 polygon" style={{ background: "var(--pure)" }}>
                 <div>
                     <img
                         style={{

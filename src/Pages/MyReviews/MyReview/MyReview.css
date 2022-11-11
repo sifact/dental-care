@@ -6,3 +6,24 @@
     padding: 2rem;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 992px) {
+    .my_review_wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
+    .my_review_wrapper {
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+}

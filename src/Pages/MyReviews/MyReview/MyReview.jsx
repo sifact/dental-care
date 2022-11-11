@@ -8,7 +8,7 @@ const MyReview = ({ message, handleDelete }) => {
     const { review, userName, photo, serviceTitle, img, _id } = message;
 
     return (
-        <Container className="my_review_wrapper mb-5 ">
+        <Container className="my_review_wrapper mb-5 polygon">
             <div className="service text-center">
                 <h3>{serviceTitle}</h3>
                 <img

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Review from "../Review/Review";
+import "./Reviews.css";
 
 const Reviews = ({ _id }) => {
     const [reviews, setReviews] = useState([]);
@@ -12,7 +13,7 @@ const Reviews = ({ _id }) => {
     }, [reviews]);
 
     return (
-        <div>
+        <div className="review">
             {reviews.map((review) => (
                 <Review message={review} />
             ))}

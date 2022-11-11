@@ -42,7 +42,7 @@ const EditReviews = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center mb-5">
             <div>
                 <h1 className="text-center my-5">Update your review</h1>
                 <div className="f_container" style={{ width: "500px" }}>

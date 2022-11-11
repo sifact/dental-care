@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
     return (
         <section
-            className="text-white d-flex align-items-center"
+            className="text-white d-flex align-items-center mt-5"
             style={{ backgroundColor: "var(--footer)", height: "300px" }}
         >
             <Container className="text-center">
