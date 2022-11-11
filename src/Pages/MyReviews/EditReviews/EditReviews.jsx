@@ -21,9 +21,11 @@ const EditReviews = () => {
             .then((data) => {
                 // console.log("hello");
                 if (data.modifiedCount > 0) {
-                    alert("User added successfully");
+                    alert("Review Updated successfully");
                 }
                 // event.target.reset();
+                event.target.reset();
+                console.log("h");
             });
     };
 
@@ -32,7 +34,7 @@ const EditReviews = () => {
         const field = event.target.name;
         const newReview = { ...review };
         newReview[field] = value;
-        console.log(newReview);
+
         setReview(newReview);
     };
 

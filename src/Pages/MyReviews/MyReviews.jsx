@@ -7,13 +7,15 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
-    console.log(reviews);
-
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("dental-token")}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => setReviews(data));
-    }, [user.email]);
+    }, [user?.email]);
 
     const handleDelete = (_id) => {
         const agree = window.confirm(
@@ -36,6 +38,17 @@ const MyReviews = () => {
                 });
         }
     };
+
+    if (reviews?.length === 0) {
+        return (
+            <div
+                className="d-flex align-items-center justify-content-center"
+                style={{ height: "80vh", width: "100vw" }}
+            >
+                <h1>you have no reviews yet...</h1>
+            </div>
+        );
+    }
     return (
         <div className="my-5">
             {reviews.map((review) => (

@@ -3,13 +3,14 @@ import React, { useContext } from "react";
 import { createBrowserRouter } from "react-router-dom";
 // import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import Main from "../../Layouts/Main";
+import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import EditReviews from "../../Pages/MyReviews/EditReviews/EditReviews";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
-import AddReviews from "../../Pages/ServiceDetails/AddReviews/AddReviews";
+
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
                 element: <EditReviews />,
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/r/${params.id}`),
+            },
+            {
+                path: "/add/service",
+                element: <AddService />,
             },
         ],
     },
