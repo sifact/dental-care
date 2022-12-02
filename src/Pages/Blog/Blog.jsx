@@ -26,9 +26,7 @@ const Blog = () => {
                                 <li>
                                     In almost all situations SQL databases are
                                     vertically scalable. But on the other hand
-                                    NoSQL databases are horizontally
-                                    scalable.Thus NoSQL can ultimately become
-                                    larger and more powerful.
+                                    NoSQL databases are horizontally scalable.
                                 </li>
                                 <p className="space"></p>
                                 <li>

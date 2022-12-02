@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/UseTitle";
@@ -48,6 +49,14 @@ const MyReviews = () => {
     };
 
     if (reviews?.length === 0) {
+        // return (
+        //     <Spinner
+        //         animation="grow"
+        //         className="text-center d-block"
+        //         variant="info"
+        //     />
+        // );
+
         return (
             <div
                 className="d-flex align-items-center justify-content-center"
