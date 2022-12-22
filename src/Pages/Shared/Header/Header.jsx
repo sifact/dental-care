@@ -24,7 +24,7 @@ const Header = () => {
             <Container>
                 <Navbar.Brand className="text-bold" href="#">
                     <h1 className="bold title">
-                        <span className="highlight">Dental</span> Care
+                        <span className="highlight">Dental</span>
                     </h1>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />

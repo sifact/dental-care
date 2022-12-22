@@ -4,17 +4,17 @@
 
 # website features:
 
-* SPA web app
-* Users can see different types of services with details
-* Users can see others reviews about corresponding services
-* Users can add, delete and update theire reviews
-* Also user/admin can add service
-* firebase auth, protected route and JWT verification implemented
+-   SPA web app
+-   Users can see different types of services with details
+-   Users can see others reviews about corresponding services
+-   Users can add, delete and update their reviews
+-   Also user/admin can add service
+-   firebase auth, protected route and JWT verification implemented
 
 # Used Technology
 
-* React Bootstrap
-* React
-* React Router
-* Firebase
-* MongoDB
+-   React Bootstrap
+-   React
+-   React Router
+-   Firebase
+-   MongoDB

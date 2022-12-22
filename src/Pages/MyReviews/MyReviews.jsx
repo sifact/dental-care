@@ -38,7 +38,7 @@ const MyReviews = () => {
                 .then((data) => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert("User deleted successfully");
+                        alert("Review deleted successfully");
                         const remainingReviews = reviews.filter(
                             (rev) => rev._id !== _id
                         );

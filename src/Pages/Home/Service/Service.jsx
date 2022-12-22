@@ -10,7 +10,7 @@ const Service = ({ serve }) => {
     const { title, img, price, description, _id } = serve;
 
     return (
-        <Card className="border-0 polygon">
+        <Card className="border-0">
             <PhotoProvider>
                 <PhotoView src={img}>
                     <Card.Img variant="top" src={img} />
