@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Service from "../Service/Service";
 import "./Services.css";
 import { useQuery } from "@tanstack/react-query";
+import { Spinner } from "react-bootstrap";
 
 const Services = () => {
     // const [services, setServices] = useState([]);
@@ -14,7 +15,7 @@ const Services = () => {
     //         .then((data) => setServices(data));
     // }, []);
 
-    const { data: services = [] } = useQuery({
+    const { data: services = [], isLoading } = useQuery({
         queryKey: ["services"],
         queryFn: async () => {
             const res = await fetch(
@@ -24,6 +25,16 @@ const Services = () => {
             return data;
         },
     });
+
+    if (isLoading) {
+        return (
+            <Spinner
+                animation="grow"
+                className="text-center d-block w-full"
+                variant="info"
+            />
+        );
+    }
     return (
         <Container>
             <h1 className="text-center my-5">Services</h1>

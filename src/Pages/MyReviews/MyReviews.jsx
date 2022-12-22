@@ -4,27 +4,60 @@ import { Spinner } from "react-bootstrap";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/UseTitle";
 import MyReview from "./MyReview/MyReview";
+import { useQuery } from "@tanstack/react-query";
 
 const MyReviews = () => {
     useTitle("My Reviews");
 
     const { user } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([]);
+    // const [reviews, setReviews] = useState([]);
 
-    useEffect(() => {
-        fetch(
-            `https://dental-care-server-six.vercel.app/reviews?email=${user?.email}`,
-            {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        "dental-token"
-                    )}`,
-                },
-            }
-        )
-            .then((res) => res.json())
-            .then((data) => setReviews(data));
-    }, [user?.email]);
+    // useEffect(() => {
+    //     fetch(
+    //         `https://dental-care-server-six.vercel.app/reviews?email=${user?.email}`,
+    //         {
+    //             headers: {
+    //                 authorization: `Bearer ${localStorage.getItem(
+    //                     "dental-token"
+    //                 )}`,
+    //             },
+    //         }
+    //     )
+    //         .then((res) => res.json())
+    //         .then((data) => setReviews(data));
+    // }, [user?.email]);
+
+    const {
+        data: reviews = [],
+        isLoading,
+        refetch,
+    } = useQuery({
+        queryKey: ["services", user?.email],
+        queryFn: async () => {
+            const res = await fetch(
+                `https://dental-care-server-six.vercel.app/reviews?email=${user?.email}`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "dental-token"
+                        )}`,
+                    },
+                }
+            );
+            const data = await res.json();
+            return data;
+        },
+    });
+
+    if (isLoading) {
+        return (
+            <Spinner
+                animation="grow"
+                className="text-center d-block"
+                variant="info"
+            />
+        );
+    }
 
     const handleDelete = (_id) => {
         const agree = window.confirm(
@@ -39,10 +72,11 @@ const MyReviews = () => {
                     console.log(data);
                     if (data.deletedCount > 0) {
                         alert("Review deleted successfully");
-                        const remainingReviews = reviews.filter(
-                            (rev) => rev._id !== _id
-                        );
-                        setReviews(remainingReviews);
+                        // const remainingReviews = reviews.filter(
+                        //     (rev) => rev._id !== _id
+                        // );
+                        // setReviews(remainingReviews);
+                        refetch();
                     }
                 });
         }
